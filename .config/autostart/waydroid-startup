@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#if [ systemctl status waydroid-container | grep "active (running)" ]; then
+#	wmctrl -s 2 && /usr/bin/waydroid container restart &
+#else
+
+check_for_window() {
+	attempts=120 # 30 seconds
+	while ! xdotool search --name "Waydroid"; do
+		((attempts--))
+		sleep 0.25
+		echo "Waiting for Waydroid window to appear"
+	done
+}
+
+waydroid session stop
+wmctrl -s 4 && /usr/bin/waydroid show-full-ui &
+#check_for_window #xdotool and wmctrl can't find the window.
+sleep 2
+exit 0

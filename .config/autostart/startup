@@ -1,0 +1,10 @@
+#!/bin/bash
+#/home/comfy/.config/autostart/autostart-scripts/waydroid-startup
+sleep 1
+/home/comfy/.config/autostart/autostart-scripts/vivaldi-startup
+sleep 1
+/home/comfy/.config/autostart/autostart-scripts/stick-startup
+sleep 1
+/home/comfy/.config/autostart/autostart-scripts/ether-startup
+sleep 1
+/home/comfy/.config/autostart/autostart-scripts/kitty-startup

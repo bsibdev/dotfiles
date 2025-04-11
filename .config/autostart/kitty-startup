@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $USER == "root" ];then
+        user="sudo -H -u $SUDO_USER"
+else
+        user=""
+fi
+
+wmctrl -s 0
+$user kitty --session ~/.config/kitty/kitty-startup.conf &
+sleep 0.5
+exit 0

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $USER == root ]; then
+        user="sudo -H -u $SUDO_USER"
+else
+        user=""
+fi
+
+check_for_window() {
+	attempts=40 # 20 seconds
+	window_title="$1"
+	while $attempts -gt 0; do
+		while ! xdotool search --name $window_title; do
+			((attempts--))
+			sleep 0.15
+			echo "Waiting for $window_title window to appear"
+
+		done
+	done
+}
+
+wmctrl -s 2
+kitty --session ~/.config/kitty/kitty-sticks.conf &
+sleep 1.5
+heroic &
+check_for_window "Heroic Games Launcher"
+sleep 1.5

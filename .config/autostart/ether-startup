@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $USER == "root" ];then
+        user="sudo -H -u $SUDO_USER"
+else
+        user=""
+fi
+
+wmctrl -s 1
+$user kitty --session ~/.config/kitty/kitty-ether.conf &
+sleep 0.5
+exit 0
